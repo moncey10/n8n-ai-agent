@@ -1,0 +1,182 @@
+{
+  "name": "My First AI Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c6509236-42b9-4ecb-a666-c46851e2e6e6",
+      "name": "When chat message received",
+      "webhookId": "244c3fe7-abdc-4780-96c6-a52516cb740e"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful and friendly AI assistant.\nAnswer questions clearly and simply.\nIf you don't know something, say so honestly."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "6774175e-c35f-4eee-9f0b-77b4bab5ed0a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        208
+      ],
+      "id": "8dadef34-bfcf-4e1e-8803-6097be11a26f",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        368,
+        208
+      ],
+      "id": "dce32a56-1f92-4d85-bc73-59cd2c4f59fc",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.3,
+      "position": [
+        464,
+        304
+      ],
+      "id": "271e803f-c883-4f82-aed3-b51665c918b2",
+      "name": "Code Tool"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        560,
+        281
+      ],
+      "id": "e967f41b-1341-4c36-99e0-a6a5ddebd858",
+      "name": "Wikipedia"
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxOutputTokens": null,
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        80,
+        208
+      ],
+      "id": "ffa42459-57cb-4a18-8383-594e07914307",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "8LjqmTw3PMmE95E8",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "4b58a2b3-0ae7-473f-a7dd-232e427d5767",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e9c0f07ec2ad49ac4a3a159ff1d906f4489b900b267e8a36d7d6c38985d3ac4a"
+  },
+  "id": "kOt4oOoMFFmIZf2y",
+  "tags": []
+}
