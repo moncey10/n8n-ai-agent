@@ -53,7 +53,7 @@ A conversational AI Agent built using n8n workflow automation tool.
 | Write a Python hello world | Code Tool |
 | What is machine learning? | Gemini AI |
 
-## 📁 Project Structure
+##  Project Structure
 ```
 n8n-ai-agent/
 │
@@ -61,9 +61,9 @@ n8n-ai-agent/
 └── README.md                # This file
 ```
 
-## 👨‍💻 Author
+##  Author
 - Built by Moncey
 - Built with n8n Cloud + Google Gemini
 
-## 📝 License
+##  License
 This project is open source and free to use.
